@@ -1,4 +1,33 @@
 
+
+#define AT24MAC602_EEPROM_CHIPADDRESS_BASE  ( 0xA0 ) //!< EEPROM chip base address
+#define AT24MAC602_PSWP_CHIPADDRESS_BASE    ( 0x60 ) //!< Permanent Software Write Protection (PSWP) chip base address
+#define AT24MAC602_SERIAL_CHIPADDRESS_BASE  ( 0xB0 ) //!< Unique Serial Number chip base address
+#define AT24MAC602_EUI_CHIPADDRESS_BASE     ( 0xB0 ) //!< EUI-64™ chip base address
+#define AT24MAC602_CHIPADDRESS_MASK         ( 0xFE ) //!< Chip address mask
+
+#define AT24MAC602_RSWP_SET_CHIPADDRESS     ( 0x62 ) //!< Set Reversible Software Write Protection (RSWP) chip base address (See datasheet for hardware configuration)
+#define AT24MAC602_RSWP_CLEAR_CHIPADDRESS   ( 0x66 ) //!< Clear Reversible Software Write Protection (RSWP) chip base address (See datasheet for hardware configuration)
+
+#define AT24MAC602_SERIAL_MEMORYADDR        ( 0x80 ) //!< Memory address where the Serial Number is
+#define AT24MAC602_EUI64_MEMORYADDR         ( 0x98 ) //!< Memory address where the EUI64 is
+
+#define AT24MAC602_ADDRESS_SIZE_MAX         ( 16 ) //!< The AT24MAC602 has 256 page maximum
+
+#define AT24MAC602_PAGE_SIZE                ( 16 ) //!< The AT24MAC602 is 16 bytes page size
+#define AT24MAC602_PAGE_SIZE_MASK           ( AT24MAC602_PAGE_SIZE - 1 ) //!< The AT24MAC602 page mask is 0x0F
+#define AT24MAC602_EEPROM_SIZE              ( AT24MAC602_ADDRESS_SIZE_MAX * AT24MAC602_PAGE_SIZE ) //!< The AT24MAC602 total EEPROM size
+
+#define AT24MAC602_SERIAL_SIZE              ( 16 ) //!< AT24MAC602 Unique Serial Number size
+
+#define EUI64_OUI_LEN  ( 3 ) 											 //!< Organizationally Unique Identifier (OUI) size is 3 bytes
+#define EUI64_NIC_LEN  ( 5 ) 											 //!< Network Interface Controller (NIC) size is 5 bytes
+#define EUI64_LEN      ( EUI64_OUI_LEN + EUI64_NIC_LEN )
+
+
+
+
+
 __STATIC_INLINE void MX_I2C4_Init(void){
 	
 	GPIO_InitTypeDef GPIO_InitStruct = {0};
